@@ -17,9 +17,9 @@ secondaryPhotos.forEach(photo => photo.addEventListener('click', () => {
     photo.classList.add('active');
     let number = photo.children[0].src.split('-')[2];
     if(!document.querySelector('.bigger-photos').classList.contains('active')) {
-        document.querySelector('.main-photo > img').src = `./images/image-product-${number}.jpg`;
+        document.querySelector('.main-photo > img').src = `../images/image-product-${number}.jpg`;
     }else {
-        document.querySelector('.bigger-photos').querySelector('.main-photo > img').src = `./images/image-product-${number}.jpg`;
+        document.querySelector('.bigger-photos').querySelector('.main-photo > img').src = `../images/image-product-${number}.jpg`;
     }
 }))
 
@@ -57,7 +57,7 @@ document.querySelector('.arrow-bigger-left').addEventListener('click', () => {
     if(currentSecondaryNumber < 0){
         currentSecondaryNumber = document.querySelectorAll('.bigger-photos .secondary-photos-img-container').length - 1;
     }
-    document.querySelector('.bigger-photos > .main-photo > img').src = `./images/image-product-${number}.jpg`;
+    document.querySelector('.bigger-photos > .main-photo > img').src = `../images/image-product-${number}.jpg`;
     document.querySelectorAll('.bigger-photos .secondary-photos-img-container').forEach(secondaryPhoto => secondaryPhoto.classList.remove('active'));
     let currentSecondaryPhoto = document.querySelectorAll('.bigger-photos .secondary-photos-img-container')[currentSecondaryNumber];
     currentSecondaryPhoto.classList.add('active');
@@ -68,7 +68,7 @@ document.querySelector('.arrow-bigger-right').addEventListener('click', () => {
     if(number > document.querySelectorAll('.bigger-photos .secondary-photos-img-container').length){
         number = 1;
     }
-    document.querySelector('.bigger-photos > .main-photo > img').src = `./images/image-product-${number}.jpg`;
+    document.querySelector('.bigger-photos > .main-photo > img').src = `../images/image-product-${number}.jpg`;
     document.querySelectorAll('.bigger-photos .secondary-photos-img-container').forEach(secondaryPhoto => secondaryPhoto.classList.remove('active'));
     let currentSecondaryPhoto = document.querySelectorAll('.bigger-photos .secondary-photos-img-container')[number - 1];
     currentSecondaryPhoto.classList.add('active');
@@ -79,7 +79,7 @@ document.querySelector('.arrow-left').addEventListener('click', () => {
     if(number == 0) {
         number = document.querySelectorAll('.main__photos .secondary-photos-img-container').length ;
     }
-    document.querySelector('.main-photo > img').src = `./images/image-product-${number}.jpg`;
+    document.querySelector('.main-photo > img').src = `../images/image-product-${number}.jpg`;
     document.querySelectorAll('.main__photos .secondary-photos-img-container').forEach(secondaryPhoto => secondaryPhoto.classList.remove('active'));
     let currentSecondaryPhoto = document.querySelectorAll('.main__photos .secondary-photos-img-container')[number - 1];
     currentSecondaryPhoto.classList.add('active');
@@ -90,7 +90,7 @@ document.querySelector('.arrow-right').addEventListener('click', () => {
     if(number > document.querySelectorAll('.main__photos .secondary-photos-img-container').length){
         number = 1;
     }
-    document.querySelector('.main-photo > img').src = `./images/image-product-${number}.jpg`;
+    document.querySelector('.main-photo > img').src = `../images/image-product-${number}.jpg`;
     document.querySelectorAll('.main__photos .secondary-photos-img-container').forEach(secondaryPhoto => secondaryPhoto.classList.remove('active'));
     let currentSecondaryPhoto = document.querySelectorAll('.main__photos .secondary-photos-img-container')[number - 1];
     currentSecondaryPhoto.classList.add('active');
