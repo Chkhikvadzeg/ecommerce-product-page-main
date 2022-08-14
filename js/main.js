@@ -15,11 +15,12 @@ const secondaryPhotos = document.querySelectorAll('.secondary-photos-img-contain
 secondaryPhotos.forEach(photo => photo.addEventListener('click', () => {
     secondaryPhotos.forEach(secondaryPhoto => secondaryPhoto.classList.remove('active'));
     photo.classList.add('active');
-    let number = photo.children[0].src.split('-')[2];
+    let number = photo.children[0].src.split('-')[5];
+    console.log(photo.children[0].src.split('-'))
     if(!document.querySelector('.bigger-photos').classList.contains('active')) {
-        document.querySelector('.main-photo > img').src = `../images/image-product-${number}.jpg`;
+        document.querySelector('.main-photo > img').src = `./images/image-product-${number}.jpg`;
     }else {
-        document.querySelector('.bigger-photos').querySelector('.main-photo > img').src = `../images/image-product-${number}.jpg`;
+        document.querySelector('.bigger-photos').querySelector('.main-photo > img').src = `./images/image-product-${number}.jpg`;
     }
 }))
 
@@ -44,53 +45,53 @@ document.querySelector('.close-bigger-photos').addEventListener('click', () => {
     document.querySelector('.bigger-photos').classList.remove('active');
     const biggerPhotoSrc = document.querySelector('.bigger-photos > .main-photo > img').src;
     document.querySelector('.main-photo > img').src = biggerPhotoSrc;
-    let number = parseInt(biggerPhotoSrc.split('-')[2]) - 1;
+    let number = parseInt(biggerPhotoSrc.split('-')[5]) - 1;
     document.querySelectorAll('.main__photos .secondary-photos-img-container')[number].classList.add('active');
 })
 
 document.querySelector('.arrow-bigger-left').addEventListener('click', () => {
-    let number = parseInt(document.querySelector('.bigger-photos > .main-photo > img').src.split('-')[2]) - 1;
-    let currentSecondaryNumber = parseInt(document.querySelector('.bigger-photos > .main-photo > img').src.split('-')[2]) - 2;
+    let number = parseInt(document.querySelector('.bigger-photos > .main-photo > img').src.split('-')[5]) - 1;
+    let currentSecondaryNumber = parseInt(document.querySelector('.bigger-photos > .main-photo > img').src.split('-')[5]) - 2;
     if(number == 0) {
         number = document.querySelectorAll('.bigger-photos .secondary-photos-img-container').length ;
     }
     if(currentSecondaryNumber < 0){
         currentSecondaryNumber = document.querySelectorAll('.bigger-photos .secondary-photos-img-container').length - 1;
     }
-    document.querySelector('.bigger-photos > .main-photo > img').src = `../images/image-product-${number}.jpg`;
+    document.querySelector('.bigger-photos > .main-photo > img').src = `./images/image-product-${number}.jpg`;
     document.querySelectorAll('.bigger-photos .secondary-photos-img-container').forEach(secondaryPhoto => secondaryPhoto.classList.remove('active'));
     let currentSecondaryPhoto = document.querySelectorAll('.bigger-photos .secondary-photos-img-container')[currentSecondaryNumber];
     currentSecondaryPhoto.classList.add('active');
 })
 
 document.querySelector('.arrow-bigger-right').addEventListener('click', () => {
-    let number = parseInt(document.querySelector('.bigger-photos > .main-photo > img').src.split('-')[2]) + 1;
+    let number = parseInt(document.querySelector('.bigger-photos > .main-photo > img').src.split('-')[5]) + 1;
     if(number > document.querySelectorAll('.bigger-photos .secondary-photos-img-container').length){
         number = 1;
     }
-    document.querySelector('.bigger-photos > .main-photo > img').src = `../images/image-product-${number}.jpg`;
+    document.querySelector('.bigger-photos > .main-photo > img').src = `./images/image-product-${number}.jpg`;
     document.querySelectorAll('.bigger-photos .secondary-photos-img-container').forEach(secondaryPhoto => secondaryPhoto.classList.remove('active'));
     let currentSecondaryPhoto = document.querySelectorAll('.bigger-photos .secondary-photos-img-container')[number - 1];
     currentSecondaryPhoto.classList.add('active');
 })
 
 document.querySelector('.arrow-left').addEventListener('click', () => {
-    let number = parseInt(document.querySelector('.main-photo > img').src.split('-')[2]) - 1;
+    let number = parseInt(document.querySelector('.main-photo > img').src.split('-')[5]) - 1;
     if(number == 0) {
         number = document.querySelectorAll('.main__photos .secondary-photos-img-container').length ;
     }
-    document.querySelector('.main-photo > img').src = `../images/image-product-${number}.jpg`;
+    document.querySelector('.main-photo > img').src = `./images/image-product-${number}.jpg`;
     document.querySelectorAll('.main__photos .secondary-photos-img-container').forEach(secondaryPhoto => secondaryPhoto.classList.remove('active'));
     let currentSecondaryPhoto = document.querySelectorAll('.main__photos .secondary-photos-img-container')[number - 1];
     currentSecondaryPhoto.classList.add('active');
 })
 
 document.querySelector('.arrow-right').addEventListener('click', () => {
-    let number = parseInt(document.querySelector('.main-photo > img').src.split('-')[2]) + 1;
+    let number = parseInt(document.querySelector('.main-photo > img').src.split('-')[5]) + 1;
     if(number > document.querySelectorAll('.main__photos .secondary-photos-img-container').length){
         number = 1;
     }
-    document.querySelector('.main-photo > img').src = `../images/image-product-${number}.jpg`;
+    document.querySelector('.main-photo > img').src = `./images/image-product-${number}.jpg`;
     document.querySelectorAll('.main__photos .secondary-photos-img-container').forEach(secondaryPhoto => secondaryPhoto.classList.remove('active'));
     let currentSecondaryPhoto = document.querySelectorAll('.main__photos .secondary-photos-img-container')[number - 1];
     currentSecondaryPhoto.classList.add('active');
