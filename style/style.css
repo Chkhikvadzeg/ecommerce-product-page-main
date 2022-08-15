@@ -38,6 +38,10 @@ input[type=number] {
     -moz-appearance:textfield; 
 }
 
+html {
+    overflow-x: hidden;
+}
+
 body {
     font-size: var(--fs-normal);
     color: var(--clr-darkGrayishBlue);
