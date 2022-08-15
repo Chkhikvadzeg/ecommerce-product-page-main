@@ -121,6 +121,8 @@ addToCartButton.addEventListener('click', () => {
         console.log(totalPrice)
         sneakersQuantity.innerHTML = parseInt(sneakersQuantity.innerHTML) + parseInt(quantity.value);
         totalPrice.innerHTML = `$${+document.querySelector('.total-price').innerHTML.split('$')[1] + parseInt(quantity.value) * +document.querySelector('.product__info-price-new').innerHTML.split('$')[1]}.00`;
+        cartButton.setAttribute('data-count', sneakersQuantity.innerHTML);
+        cartButton.classList.add('active');
         quantity.value = 0;
     }
 })
@@ -131,4 +133,6 @@ removeItemsButton.addEventListener('click', () => {
     totalPrice.innerHTML = '$0.00';
     document.querySelector('.cart__items-content').style.display = 'none';
     document.querySelector('.cart__items-none').style.display = 'block';
+    cartButton.classList.remove('active');
+    cartButton.setAttribute('data-count', 0);
 })

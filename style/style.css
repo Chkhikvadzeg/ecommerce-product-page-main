@@ -131,6 +131,32 @@ button {
     position: relative;
 }
 
+.cart-button {
+    position: relative;
+}
+
+.cart-button::after {
+    content: attr(data-count);
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(50%, -50%);   
+    background-color: var(--clr-orange);
+    width: 19px;
+    height: 13px;
+    border-radius: 6.5px;
+    color: var(--clr-white);
+    font-size: 10px;
+    line-height: 12px;
+    font-weight: var(--fw-bold);
+    padding-top: 1px;
+    display: none;
+}
+
+.cart-button.active::after {
+    display: block;
+}
+
 .cart__content {
     position: absolute;
     width: 360px;
