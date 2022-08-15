@@ -16,7 +16,6 @@ secondaryPhotos.forEach(photo => photo.addEventListener('click', () => {
     secondaryPhotos.forEach(secondaryPhoto => secondaryPhoto.classList.remove('active'));
     photo.classList.add('active');
     let number = photo.children[0].src.split('-')[5];
-    console.log(photo.children[0].src.split('-'))
     if(!document.querySelector('.bigger-photos').classList.contains('active')) {
         document.querySelector('.main-photo > img').src = `./images/image-product-${number}.jpg`;
     }else {
@@ -95,4 +94,41 @@ document.querySelector('.arrow-right').addEventListener('click', () => {
     document.querySelectorAll('.main__photos .secondary-photos-img-container').forEach(secondaryPhoto => secondaryPhoto.classList.remove('active'));
     let currentSecondaryPhoto = document.querySelectorAll('.main__photos .secondary-photos-img-container')[number - 1];
     currentSecondaryPhoto.classList.add('active');
+})
+
+const plusButton = document.querySelector('.plus');
+const minusButton = document.querySelector('.minus');
+const quantity = document.querySelector('.quantity');
+plusButton.addEventListener('click', () => {
+    quantity.value = parseInt(quantity.value) + 1;
+})
+
+minusButton.addEventListener('click', () => {
+    if(quantity.value > 0){
+        quantity.value = parseInt(quantity.value) - 1;
+    }
+})
+
+
+const sneakersQuantity = document.querySelector('.cart__items-content-quantity');
+const totalPrice = document.querySelector('.total-price');
+const addToCartButton = document.querySelector('.add-to-cart-button');
+addToCartButton.addEventListener('click', () => {
+    if(quantity.value > 0){
+        document.querySelector('.cart__items-none').style.display = 'none'
+        document.querySelector('.cart__items-content').style.display = 'flex'
+        
+        console.log(totalPrice)
+        sneakersQuantity.innerHTML = parseInt(sneakersQuantity.innerHTML) + parseInt(quantity.value);
+        totalPrice.innerHTML = `$${+document.querySelector('.total-price').innerHTML.split('$')[1] + parseInt(quantity.value) * +document.querySelector('.product__info-price-new').innerHTML.split('$')[1]}.00`;
+        quantity.value = 0;
+    }
+})
+
+const removeItemsButton = document.querySelector('.remove-items');
+removeItemsButton.addEventListener('click', () => {
+    sneakersQuantity.innerHTML = 0;
+    totalPrice.innerHTML = '$0.00';
+    document.querySelector('.cart__items-content').style.display = 'none';
+    document.querySelector('.cart__items-none').style.display = 'block';
 })
