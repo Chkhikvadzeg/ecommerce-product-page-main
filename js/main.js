@@ -134,3 +134,10 @@ removeItemsButton.addEventListener('click', () => {
     cartButton.classList.remove('active');
     cartButton.setAttribute('data-count', 0);
 })
+
+document.querySelector('.bg-black').addEventListener("click", function (e) {
+    let biggerPhotos = document.querySelector('.bigger-photos');
+    biggerPhotos.classList.remove("active");
+    document.querySelector(".header__nav").classList.remove("active");
+    document.querySelector(".bg-black").classList.remove("active");
+});

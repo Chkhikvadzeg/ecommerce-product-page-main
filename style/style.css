@@ -463,6 +463,11 @@ button {
     justify-content: center;
 }
 
+.bigger-photos .main-photo {
+    height: 60vh;
+    aspect-ratio: 1;
+}
+
 .bg-black {
     position: absolute;
     top: 0;
