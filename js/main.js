@@ -140,4 +140,8 @@ document.querySelector('.bg-black').addEventListener("click", function (e) {
     biggerPhotos.classList.remove("active");
     document.querySelector(".header__nav").classList.remove("active");
     document.querySelector(".bg-black").classList.remove("active");
+    const biggerPhotoSrc = document.querySelector('.bigger-photos > .main-photo > img').src;
+    document.querySelector('.main-photo > img').src = biggerPhotoSrc;
+    let number = parseInt(biggerPhotoSrc.split('-')[5]) - 1;
+    document.querySelectorAll('.main__photos .secondary-photos-img-container')[number].classList.add('active');
 });
